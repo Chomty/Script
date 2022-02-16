@@ -1,2 +1,2 @@
-# Script
-아무거나 일단 적고보는 스크립트
+# File
+The result of the work
