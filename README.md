@@ -1,2 +1,2 @@
-# File
-The result of the work
+# Script
+Writing any codes
