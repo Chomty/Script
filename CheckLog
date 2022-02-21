@@ -1,0 +1,36 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class CheckLog : MonoBehaviour
+{
+    public GameObject CheckButtonON;
+    public GameObject CheckButtonOFF;
+    public GameObject LogCanvas;
+    public GameObject Canvas;
+    public GameObject AddOption;
+    public GameObject AddOptionScript;
+    public GameObject Content;
+    public Text LOG;
+    public void CheckLogFuntion()   // 로그창을 위한 작업
+    {
+        LogCanvas.gameObject.SetActive(true);
+        string Logging;
+        Logging = GameObject.Find("Option").GetComponent<cube>().Log;
+        Canvas.gameObject.SetActive(false);
+        AddOption.gameObject.SetActive(false);
+        AddOptionScript.gameObject.SetActive(false);
+        LOG.text = Logging;
+    }
+    public void CheckLogFuntionOFF()   // 로그창 마무리 작업
+    {
+        LogCanvas.gameObject.SetActive(false);
+        Canvas.gameObject.SetActive(true);
+        AddOption.gameObject.SetActive(true);
+        AddOptionScript.gameObject.SetActive(true);
+        Vector3 position = Content.transform.localPosition;
+        position.y = 0;
+        Content.transform.localPosition = position;
+    }
+}
