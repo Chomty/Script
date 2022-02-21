@@ -1,0 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class QuestionScript : MonoBehaviour
+{
+    public GameObject ONButton;
+    public GameObject OFFButton;
+    public GameObject Question;
+
+    public void QuestionPenelOFF()
+    {
+        Question.gameObject.SetActive(false);
+    }
+    public void QuestionPenelON() 
+    {
+        Question.gameObject.SetActive(true);
+    }
+}
