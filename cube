@@ -1,0 +1,487 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using System.Threading;
+
+public class cube : MonoBehaviour
+{
+    public GameObject buttonz;
+    public Text CubeOption1;
+    public Text CubeOption2;
+    public Text CubeOption3;
+    public Text Rere_Text;
+    public Text Option1;
+    public Text Option2;
+    public Text Option3;
+    public Text AddNumber;
+    public string Log = "";
+    static int Number = 0;
+    static int Try = 0;
+    static int a = 0;
+    static int b = 0;
+    static int Vin_Int = 0;
+    static string Rere_Rating = "레어";
+    static string Conclusion_1;    // 첫째 줄
+    static string Conclusion_2;    // 둘째 줄
+    static string Conclusion_3;    // 셋째 줄
+    
+    public void RED_Cube() 
+    {
+        Rere();
+        Red_Cube();
+        Number += 1;
+        CubeOption1.text = Conclusion_1;
+        CubeOption2.text = Conclusion_2;
+        CubeOption3.text = Conclusion_3;
+        Option1.text = Conclusion_1;
+        Option2.text = Conclusion_2;
+        Option3.text = Conclusion_3;
+        Rere_Text.text = Rere_Rating;
+        AddNumber.text = "사용 횟수 : "+Number.ToString();
+        Debug.Log("옵션을 재설정하였습니다.");
+        Log += Number + " 번째\n"+ "" + "등급 : " + Rere_Rating + "\n" + Conclusion_1 + "\n" + Conclusion_2 + "\n" + Conclusion_3 + "\n\n";
+    }
+    static void Rere()
+        {
+            Vin_Int = Random.Range(0, 1000);
+            if (Rere_Rating == "유니크" && Vin_Int <= 3)
+            {
+                Rere_Rating = "레전더리";
+            }
+            if (Rere_Rating == "에픽" && Vin_Int <= 18)
+            {
+                Rere_Rating = "유니크";
+            }
+            if (Rere_Rating == "레어" && Vin_Int <= 60)
+            {
+                Rere_Rating = "에픽";
+            }
+            
+        }
+    static void Red_Cube()
+        {
+            if (Rere_Rating == "레어")
+            {
+                string[] Options_1 = new string[26] { "LUK : +3%", "STR : +12" , "DEX : +12" , "INT : +12"
+                    , "LUK : +12" , "최대 HP : +120" , "최대 MP : +120", "STR : +3%", "INT : +3%", "DEX : +3%", "공격력 : +12", "마력 : +12", "올스탯 : +5", "공격력 : +3%", "마력 : +3%",
+                    "크리티컬 확률 : +4%", "공격 시 20% 확률로 240의 HP 회복", "공격 시 20% 확률로 120의 MP 회복", "공격 시 20% 확률로 6레벨 중독효과 적용",
+                    "공격 시 10% 확률로 2레벨 기절효과 적용", "공격 시 20% 확률로 2레벨 슬로우효과 적용", "공격 시 20% 확률로 3레벨 암흑효과 적용",
+                    "공격 시 10% 확률로 2레벨 빙결효과 적용", "공격 시 10% 확률로 2레벨 봉인효과 적용", "몬스터 방어율 무시 : +15%", "데미지 : +3%"};
+                Try = Random.Range(0, 1000000);
+                if (Try <= 612248)   // 레어일때 첫줄
+                {
+                    a = 0;
+                    b = 10;
+                }
+                else if (Try > 612248 && Try <= 734696)
+                {
+                    a = 10;
+                    b = 13;
+                }
+                else
+                {
+                    a = 13;
+                    b = 26;
+                }
+                Conclusion_1 = Options_1[Random.Range(a, b)];
+
+                string[] Options_2 = new string[34] { "STR : +6", "DEX : +6", "INT : +6", "LUK : +6", "최대 HP : +60", "최대 MP : +60", "공격력 : +6", "마력 : +6",
+                "STR : +12", "DEX : +12", "INT : +12", "LUK : +12", "최대 HP : +120", "최대 MP : +120", "STR : +3%", "DEX : +3%", "INT : +3%", "LUK : +3%", "공격력 : +12",
+                "마력 : +12", "올스탯 : +5", "공격력 : +3%", "마력 : +3%", "크리티컬 확률 : +4%", "데미지 : +3%", "공격 시 20% 확률로 240의 HP 회복", "공격 시 20% 확률로 120의 MP 회복",
+                "공격 시 20% 확률로 6레벨 중독효과 적용", "공격 시 10% 확률로 2레벨 기절효과 적용", "공격 시 20% 확률로 2레벨 슬로우효과 적용", "공격 시 20% 확률로 3레벨 암흑효과 적용",
+                "공격 시 10% 확률로 2레벨 빙결효과 적용", "공격 시 10% 확률로 2레벨 봉인효과 적용", "몬스터 방어율 무시 : +15%"};
+                Try = Random.Range(0, 1000000);
+                if (Try <= 736362)   // 레어일때 첫줄
+                {
+                    a = 0;
+                    b = 6;
+                }
+                else if (Try > 736362 && Try <= 899998)
+                {
+                    a = 6;
+                    b = 8;
+                }
+                else if (Try > 899998 && Try <= 961221)
+                {
+                    a = 8;
+                    b = 18;
+                }
+                else if (Try > 961221 && Try <= 973467)
+                {
+                    a = 18;
+                    b = 21;
+                }
+                else
+                {
+                    a = 21;
+                    b = 34;
+                }
+                Conclusion_2 = Options_2[Random.Range(a, b)];
+
+                if (Conclusion_1 == "몬스터 방어율 무시 : +15%" && Conclusion_2 == "몬스터 방어율 무시 : +15%")
+                {
+                    Try = Random.Range(0, 999796);
+                    //int indexToRemove = 33;        // 다시 추가할 방법을 모색중
+                    //Options_2 = Options_2.Where((source, index) => index != indexToRemove).ToArray();
+                }
+                else
+                {
+                    Try = Random.Range(0, 1000000);
+                }
+                if (Try <= 810000)
+                {
+                    a = 0;
+                    b = 6;
+                }
+                else if (Try > 810000 && Try <= 990000)
+                {
+                    a = 6;
+                    b = 8;
+                }
+                else if (Try > 990000 && Try <= 996124)
+                {
+                    a = 8;
+                    b = 18;
+                }
+                else if (Try > 996124 && Try <= 997348)
+                {
+                    a = 18;
+                    b = 21;
+                }
+                else
+                {
+                    a = 21;
+                    b = 34;
+                }
+                Conclusion_3 = Options_2[Random.Range(a, b)];
+            }
+            if (Rere_Rating == "에픽")
+            {
+                string[] Options_1 = new string[14] {"STR : +6%", "DEX : +6%", "INT : +6%", "LUK : +6%", "최대 HP : +6%", "최대 MP : +6%", "공격력 : +6%",
+                "마력 : +6%", "크리티컬 확률 : +8%", "데미지 : +6%", "올스탯 : +3%", "공격 시 20% 확률로 360의 HP 회복", "공격 시 20% 확률로 180의 MP 회복", "몬스터 방어율 무시 : +15%"};
+                Try = Random.Range(0, 1000000);
+                if (Try <= 652176)   // 에픽일때 첫줄
+                {
+                    a = 0;
+                    b = 6;
+                }
+                else
+                {
+                    a = 6;
+                    b = 14;
+                }
+                Conclusion_1 = Options_1[Random.Range(a, b)];
+
+                string[] Options_2 = new string[40] {"STR : +12", "DEX : +12", "INT : +12", "LUK : +12", "최대 HP : +120", "최대 MP : +120", "STR : +3%", "DEX : +3%", "INT : +3%", "LUK : +3%","공격력 : +12","마력 : +12","올스텟 : +12",
+                "공격력 : +3%", "마력 : +3%", "크리티컬 확률 : +4%", "데미지 : +3%", "공격 시 20% 확률로 240의 HP 회복", "공격 시 20% 확률로 120의 MP 회복", "공격 시 20% 확률로 6레벨 중독효과 적용", "공격 시 10% 확률로 2레벨 기절효과 적용", "공격 시 20% 확률로 2레벨 슬로우효과 적용", "공격 시 20% 확률로 3레벨 암흑효과 적용", "공격 시 10% 확률로 2레벨 빙결효과 적용", "공격 시 10% 확률로 2레벨 봉인효과 적용", "몬스터 방어율 무시 : +15%",
+                "STR : +6%", "DEX : +6%", "INT : +6%", "LUK : +6%", "최대 HP : +6%", "최대 MP : +6%",
+                "공격력 : +6%", "마력 : +6%", "크리티컬 확률 : +8%", "데미지 : +6%", "올스탯 : +3%", "공격 시 20% 확률로 360의 HP 회복", "공격 시 20% 확률로 180의 MP 회복", "몬스터 방어율 무시 : +15%"};
+                Try = Random.Range(0, 1000000);
+                if (Try <= 551020)   // 에픽일때 둘째 줄
+                {
+                    a = 0;
+                    b = 10;
+                }
+                else if (Try > 551020 && Try <= 661225)
+                {
+                    a = 10;
+                    b = 13;
+                }
+                else if (Try > 661225 && Try <= 899996)
+                {
+                    a = 13;
+                    b = 26;
+                }
+                else if (Try > 899996 && Try <= 965216)
+                {
+                    a = 26;
+                    b = 32;
+                }
+                else
+                {
+                    a = 32;
+                    b = 40;
+                }
+                Conclusion_2 = Options_2[Random.Range   (a, b)];
+
+                if (Conclusion_1 == "몬스터 방어율 무시 : +15%" && Conclusion_2 == "몬스터 방어율 무시 : +15%")
+                {
+                    Try = Random.Range(0, 999565);
+                }
+                else
+                {
+                    Try = Random.Range(0, 1000000);
+                }
+                if (Try <= 606120)   // 에픽일때 셋째 줄
+                {
+                    a = 0;
+                    b = 10;
+                }
+                else if (Try > 606120 && Try <= 727344)
+                {
+                    a = 10;
+                    b = 13;
+                }
+                else if (Try > 727344 && Try <= 989996)
+                {
+                    a = 13;
+                    b = 26;
+                }
+                else if (Try > 989996 && Try <= 996518)
+                {
+                    a = 26;
+                    b = 32;
+                }
+                else
+                {
+                    a = 32;
+                    b = 40;
+                }
+                Conclusion_3 = Options_2[Random.Range(a, b)];
+            }
+            if (Rere_Rating == "유니크")
+            {
+                string[] Options_1 = new string[11] { "STR : +9%","DEX : +9%","INT : +9%","LUK : +9%","크리티컬 확률 : +9%","올스탯 : +6%",
+                    "공격력 : +9%","마력 : +9%","데미지 : +9%","몬스터 방어율 무시 : +30%","보스 몬스터 공격 시 데미지 : +30%" };
+                Try = Random.Range(0, 999997);
+                if (Try <= 465116)   // 유닉일때 첫줄
+                {
+                    a = 0;
+                    b = 4;
+                }
+                if (Try > 465116 && Try <= 651162)
+                {
+                    a = 4;
+                    b = 6;
+                }
+                else
+                {
+                    a = 6;
+                    b = 11;
+                }
+                Conclusion_1 = Options_1[Random.Range(a, b)];
+
+                string[] Options_2 = new string[25] { "STR : +6%","DEX : +6%","INT : +6%","LUK : +6%","최대 HP : +6%","최대 MP : +6%",
+                    "공격력 : +6%","마력 : +6%","크리티컬 확률 : +8%","데미지 : +6%","올스탯 : +3%","공격 시 20% 확률로 360의 HP 회복","공격 시 20% 확률로 180의 MP 회복","몬스터 방어율 무시 : +15%",
+                    "STR : +9%","DEX : +9%","INT : +9%","LUK : +9%","크리티컬 확률 : +9%","올스탯 : +6%","공격력 : +9%","마력 : +9%","데미지 : +9%","몬스터 방어율 무시 : +30%","보스 몬스터 공격 시 데미지 : +30%" };
+                Try = Random.Range(0, 1000000);
+                if (Try <= 586956)   // 유닉일때 둘째 줄
+                {
+                    a = 0;
+                    b = 6;
+                }
+                else if (Try > 586956 && Try <= 899996)
+                {
+                    a = 6;
+                    b = 14;
+                }
+                else if (Try > 899996 && Try <= 946508)
+                {
+                    a = 14;
+                    b = 18;
+                }
+                else if (Try > 946508 && Try <= 965112)
+                {
+                    a = 18;
+                    b = 20;
+                }
+                else
+                {
+                    a = 20;
+                    b = 25;
+                }
+                Conclusion_2 = Options_2[Random.Range(a, b)];
+
+                if (Conclusion_1 == "몬스터 방어율 무시 : +15%" && Conclusion_2 == "몬스터 방어율 무시 : +15%")
+                {
+                    Try = Random.Range(0, 956957);
+                }
+                else if (Conclusion_1 == "몬스터 방어율 무시 : +30%" && Conclusion_2 == "몬스터 방어율 무시 : +30%" ||
+                         Conclusion_1 == "보스 몬스터 공격 시 데미지 : +30%" && Conclusion_2 == "보스 몬스터 공격 시 데미지 : +30%")
+                {
+                    Try = Random.Range(0, 999302);
+                }
+                else
+                {
+
+                    Try = Random.Range(0, 1000000);
+                }
+                if (Try <= 6456540)   // 유닉일때 셋째 줄
+                {
+                    a = 0;
+                    b = 10;
+                }
+                else if (Try > 6456540 && Try <= 989998)
+                {
+                    a = 10;
+                    b = 13;
+                }
+                else if (Try > 989998 && Try <= 994650)
+                {
+                    a = 13;
+                    b = 26;
+                }
+                else if (Try > 994650 && Try <= 996510)
+                {
+                    a = 26;
+                    b = 32;
+                }
+                else
+                {
+                    a = 32;
+                    b = 40;
+                }
+                Conclusion_3 = Options_2[Random.Range(a, b)];
+
+            }
+            if (Rere_Rating == "레전더리")
+            {
+                string[] Options_1 = new string[16] { "STR : +12%","DEX : +12%","INT : +12%","LUK : +12%","올스텟 : +9%","공격력 : +12%","마력 : +12%","크리티컬 확률 : +12%",
+                    "데미지 : +12%","캐릭터 기준 10레벨 당 공격력 : +1","캐릭터 기준 10레벨 당 마력 : +1","몬스터 방어율 무시 : +35%","몬스터 방어율 무시 : +40%","보스 몬스터 공격 시 데미지 : +30%","보스 몬스터 공격 시 데미지 : +35%","보스 몬스터 공격 시 데미지 : +40%" };
+                Try = Random.Range(0, 999995);
+                if (Try <= 390244)   // 레전일때 첫줄
+                {
+                    a = 0;
+                    b = 4;
+                }
+                if (Try > 390244 && Try <= 463415)
+                {
+                    a = 4;
+                    b = 5;
+                }
+                else
+                {
+                    a = 5;
+                    b = 16;
+                }
+                Conclusion_1 = Options_1[Random.Range(a, b)];
+
+                string[] Options_2 = new string[27] { "STR : +9%","DEX : +9%","INT : +9%","LUK : +9%","크리티컬 확률 : +9%","올스탯 : +6%","공격력 : +9%",
+                    "마력 : +9%","데미지 : +9%","몬스터 방어율 무시 : +30%","보스 몬스터 공격 시 데미지 : +30%","STR : +12%","DEX : +12%","INT : +12%","LUK : +12%",
+                    "올스탯 : +9%","공격력 : +12%","마력 : +12%","크리티컬 확률 : +12%","데미지 : +12%","캐릭터 기준 10레벨 당 공격력 : +1",
+                    "캐릭터 기준 10레벨 당 마력 : +1","몬스터 방어율 무시 : +35%","몬스터 방어율 무시 : +40%","보스 몬스터 공격 시 데미지 : +30%",
+                    "보스 몬스터 공격 시 데미지 : +35%","보스 몬스터 공격 시 데미지 : +40%" };
+                Try = Random.Range(0, 1000000);
+                if (Try <= 418604)   // 레전일때 둘째 줄
+                {
+                    a = 0;
+                    b = 4;
+                }
+                else if (Try > 418604 && Try <= 586046)
+                {
+                    a = 4;
+                    b = 6;
+                }
+                else if (Try > 586046 && Try <= 900001)
+                {
+                    a = 6;
+                    b = 11;
+                }
+                else if (Try > 900001 && Try <= 939025)
+                {
+                    a = 11;
+                    b = 15;
+                }
+                else if (Try > 939025 && Try <= 946342)
+                {
+                    a = 15;
+                    b = 16;
+                }
+                else if (Try > 946342 && Try <= 965854)
+                {
+                    a = 16;
+                    b = 20;
+                }
+                else
+                {
+                    a = 20;
+                    b = 27;
+                }
+                Conclusion_2 = Options_2[Random.Range(a, b)];
+
+                //if (Conclusion_1 == "몬스터 방어율 무시 : +30%" && Conclusion_2 == "몬스터 방어율 무시 : +15%")    // 특정 옵션 안나오게 하는 코드인데 자세히 모르겠음...
+                //{
+                //Try = Red_First.Next(0, 999302);
+                //}
+                //else
+                //{
+                Try = Random.Range(0, 1000004);
+                //}
+                if (Try <= 460464)   // 유닉일때 셋째 줄
+                {
+                    a = 0;
+                    b = 4;
+                }
+                else if (Try > 460464 && Try <= 644650)
+                {
+                    a = 4;
+                    b = 6;
+                }
+                else if (Try > 644650 && Try <= 990000)
+                {
+                    a = 6;
+                    b = 11;
+                }
+                else if (Try > 990000 && Try <= 993904)
+                {
+                    a = 11;
+                    b = 15;
+                }
+                else if (Try > 993904 && Try <= 994636)
+                {
+                    a = 15;
+                    b = 16;
+                }
+                else if (Try > 994636 && Try <= 996588)
+                {
+                    a = 16;
+                    b = 20;
+                }
+                else
+                {
+                    a = 20;
+                    b = 27;
+                }
+                Conclusion_3 = Options_2[Random.Range(a, b)];
+
+            }
+        }
+    public void Initialization() 
+    {
+        Conclusion_1 = "옵션 첫째 줄";
+        Conclusion_2 = "옵션 둘째 줄";
+        Conclusion_3 = "옵션 셋째 줄";
+        Rere_Rating = "레어";
+        Try = 0;
+        Number = 0;
+        a = 0;
+        b = 0;
+        Vin_Int = 0;
+        CubeOption1.text = Conclusion_1;
+        CubeOption2.text = Conclusion_2;
+        CubeOption3.text = Conclusion_3;
+        Option1.text = "옵션 1";
+        Option2.text = "옵션 2";
+        Option3.text = "옵션 3";
+        Rere_Text.text = Rere_Rating;
+        AddNumber.text = "사용 횟수 : " + Number.ToString();
+        Log = "";
+    }
+    public void Repetition() 
+    {
+        int loopNum = 0;
+        while (Rere_Rating != "레전더리") 
+        {
+            RED_Cube();
+            print(loopNum + " 번 실행했습니다.");
+            if (loopNum++ > 10000) 
+            {
+                print("반복횟수를 초과하였습니다.");
+                break;            
+            }
+        }
+    }
+}
+  
+
